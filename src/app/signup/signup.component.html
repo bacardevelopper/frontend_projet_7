@@ -1,0 +1,9 @@
+<div id="signupRouter">
+    <!-- angular prend en main en emettant ngSubmit et la methode prend en argument f -->
+    <h2>SignUp</h2>
+    <form (ngSubmit)="onSignup(f)" #f="ngForm">
+        <input placeholder="email" type="text" name="email" ngModel required/><br/>
+        <input placeholder="password" type="password" name="mdp" ngModel required/><br/>
+        <button type="submit" [disabled]="f.invalid">Valider</button>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+#header{
+    position:fixed;
+    top:0px;
+    width:100%;
+    height:80px;
+    background-color:#C0392B;
+    left:0px;
+    right:0px;
+    color:white;
+    display:flex;
+    align-items:center;
+}
+
+#header a{
+    width:auto;
+    margin:5px;
+    font-size:1.5em;
+    text-decoration:underline;
+    padding:2px;
+    color:white;
+}
+
+#header img{
+    width:180px;
+    height:auto;
+    margin-left:10px;
+}
+
+#menu {
+    position:fixed;
+    right:10px;
+}
