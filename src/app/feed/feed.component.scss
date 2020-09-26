@@ -1,0 +1,34 @@
+#feed{
+    height:250px;
+    width:100%;
+    background-color:grey;
+    position:absolute;
+    top:100px;
+    margin:0px;
+    left:0px;
+    right:0px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+
+
+#feed form{
+    margin:0px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#feed input{
+    width:220px;
+    height:20px;
+    margin:1px;
+    border-radius:5px;
+    box-shadow:0;
+}
+
+#feed textarea{
+    width:220px;
+}

@@ -7,6 +7,7 @@ import { SerivceInscConnex } from '../services/ServicesLoginSignup';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss']
 })
+
 export class SigninComponent implements OnInit {
     // fonction d'inscription
     onSignin(form: NgForm){

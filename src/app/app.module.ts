@@ -12,16 +12,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from "@angular/forms";
 
 // mes services
+import { PostAndGetArticles } from './services/PostArticles';
 import { SerivceInscConnex } from './services/ServicesLoginSignup';
 import { SigninComponent } from './signin/signin.component';
 
 /* importation du module router */
 import { Routes, RouterModule } from '@angular/router';
+import { FeedComponent } from './feed/feed.component';
 
 /* un array qui contient le chemin et le component qui correspond */
 const appRoutes: Routes = [
   { path: 'signup' , component: SignupComponent},
-  { path: 'signin' , component: SigninComponent}
+  { path: 'signin' , component: SigninComponent},
+  { path: 'feed' , component: FeedComponent}
 ];
 
 @NgModule({
@@ -29,7 +32,8 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [SerivceInscConnex],
+  providers: [SerivceInscConnex, PostAndGetArticles],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
