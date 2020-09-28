@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { PostAndGetArticles } from '../services/PostArticles';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-feed',
@@ -9,9 +9,8 @@ import { PostAndGetArticles } from '../services/PostArticles';
 })
 
 export class FeedComponent implements OnInit {
-    // fonction d'inscription
+    // FONCTION RECUPERER ARTICLES
     onPost(){
-
       // envoit vers le backend
       this.postAndGet.getPost();
     }

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [SerivceInscConnex, PostAndGetArticles],
+  providers: [SerivceInscConnex, PostAndGetArticles, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
