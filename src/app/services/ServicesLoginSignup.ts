@@ -49,7 +49,9 @@ export class SerivceInscConnex {
         
         console.log('envoit terminer : ' + JSON.stringify(this.leToken.userToken));
         this.cookieService.set('idusercookie', this.leToken.userToken);
-        this.router.navigate(['feed']);
+
+        document.location.replace('http://localhost:4200/feed');
+
       },
       (error) => {
         console.log(error);
