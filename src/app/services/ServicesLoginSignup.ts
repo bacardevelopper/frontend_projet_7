@@ -13,6 +13,7 @@ export class SerivceInscConnex {
   // array des données
   private identifiants = [];
   leToken: any;
+  useremail: any;
   // injection dans le constructor
   constructor(private http: HttpClient, private cookieService: CookieService, private router : Router) {}
 
@@ -44,6 +45,7 @@ export class SerivceInscConnex {
     this.http.post('http://localhost:3000/home/login', data).subscribe(
       (dataRes) => {
         this.leToken = dataRes;
+
         console.log(data);
         // PARSER DATARESPONSE SERVER
         

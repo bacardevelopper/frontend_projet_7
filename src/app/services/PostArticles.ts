@@ -31,4 +31,25 @@ export class PostAndGetArticles {
         }
       );
   }
+
+    // POST ET AUTH ( avec le token )
+    userPost() {
+      // faire requete GET au SERVER
+      this.http
+      // on envoit le token au server
+        .post('http://localhost:3000/home/create', this.tokenJson)
+        // listen observable
+        .subscribe(
+          // datRes contient la reponse du serveur
+          (dataRes) => {
+            // si tout va bien
+            console.log('token : '+this.token);
+            console.log('envoit terminer : ' + JSON.stringify(dataRes));
+          },
+          (error) => {
+            // erreur d'enregistrement
+            console.log(error);
+          }
+        );
+    }
 }

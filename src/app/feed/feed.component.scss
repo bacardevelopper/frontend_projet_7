@@ -1,15 +1,15 @@
 #feed{
-    height:250px;
-    width:100%;
-    background-color:grey;
+    min-height:250px;
+    background-color:#F4D03F;
     position:absolute;
     top:100px;
     margin:0px;
-    left:0px;
-    right:0px;
+    left:15px;
+    right:15px;
     display:flex;
     flex-direction:column;
     align-items:center;
+    justify-content:center;
 }
 
 
@@ -21,14 +21,26 @@
     align-items:center;
 }
 
-#feed input{
-    width:220px;
-    height:20px;
-    margin:1px;
-    border-radius:5px;
-    box-shadow:0;
+#post{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+
+    justify-content:center;
+}
+
+#post input, #post textarea{
+    margin:10px;
+    border:none;
+    padding:10px;
+    min-width:80%;
 }
 
 #feed textarea{
-    width:220px;
+    height:100px;
+}
+
+#btn{
+    margin:10px;
+    width:190px;
 }

@@ -10,9 +10,14 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class FeedComponent implements OnInit {
     // FONCTION RECUPERER ARTICLES
-    onPost(){
+    onGet(){
       // envoit vers le backend
       this.postAndGet.getPost();
+    }
+
+    onPost(){
+      // envoit vers le backend
+      this.postAndGet.userPost();
     }
   constructor(private postAndGet : PostAndGetArticles) { }
 

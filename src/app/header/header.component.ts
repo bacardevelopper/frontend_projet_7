@@ -6,6 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  menu:boolean = true;
+  menuData:boolean;
+  log = "Se deconnecter";
+  
+  onMenu(){
+    if(this.menuData){
+      return this.menuData = false;
+    }else{
+      return this.menuData = true;
+    }
+
+  }
 
   constructor() { }
 

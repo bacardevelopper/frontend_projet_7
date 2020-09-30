@@ -1,7 +1,18 @@
 <div id="header">
-    <img src="../../assets/logo.png"/>
+    <img id="icon" src="../../assets/icon.png"/>
+    <button id="btn">{{ log }}</button>
+    <img id="menu" src="../../assets/menu.png" (click)="onMenu()"/>
+    <!--
     <div id="menu">
         <a routerLink="signin">login</a>
         <a routerLink="signup">singnup</a>
         <a routerLink="feed">feed</a></div>
+    -->
+</div>
+<div id="menulist" *ngIf="menuData">
+    <a routerLink="signin" >Signin</a>
+    <a routerLink="profil" >Profil</a>
+    <a routerLink="forum" >Forum</a>
+    <a routerLink="signup" >signup</a>
+    <a routerLink="posts" >Mes post</a>
 </div>

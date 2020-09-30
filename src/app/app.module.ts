@@ -20,12 +20,13 @@ import { SigninComponent } from './signin/signin.component';
 /* importation du module router */
 import { Routes, RouterModule } from '@angular/router';
 import { FeedComponent } from './feed/feed.component';
+import { ArticleComponent } from './article/article.component';
 
 /* un array qui contient le chemin et le component qui correspond */
 const appRoutes: Routes = [
   { path: 'signup' , component: SignupComponent},
   { path: 'signin' , component: SigninComponent},
-  { path: 'feed' , component: FeedComponent}
+  { path: 'forum' , component: FeedComponent}
 ];
 
 @NgModule({
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     SignupComponent,
     SigninComponent,
-    FeedComponent
+    FeedComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
