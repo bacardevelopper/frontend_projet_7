@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SerivceInscConnex } from '../services/ServicesLoginSignup';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,10 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  constructor() { }
+  onDeco(){
+    this.service.deconnecter();
+  }
+  constructor(private service : SerivceInscConnex) { }
 
   ngOnInit(): void {
   }

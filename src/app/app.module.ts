@@ -6,16 +6,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 
-// on l'importe dans 
+// on l'importe dans
 import { HttpClientModule } from '@angular/common/http';
 
 // FormsModule
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 
 // mes services
 import { PostAndGetArticles } from './services/PostArticles';
 import { SerivceInscConnex } from './services/ServicesLoginSignup';
 import { SigninComponent } from './signin/signin.component';
+import { Upload } from './services/upload';
 
 /* importation du module router */
 import { Routes, RouterModule } from '@angular/router';
@@ -24,9 +25,9 @@ import { ArticleComponent } from './article/article.component';
 
 /* un array qui contient le chemin et le component qui correspond */
 const appRoutes: Routes = [
-  { path: 'signup' , component: SignupComponent},
-  { path: 'signin' , component: SigninComponent},
-  { path: 'forum' , component: FeedComponent}
+  { path: 'signup', component: SignupComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'forum', component: FeedComponent },
 ];
 
 @NgModule({
@@ -36,15 +37,21 @@ const appRoutes: Routes = [
     SignupComponent,
     SigninComponent,
     FeedComponent,
-    ArticleComponent
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [SerivceInscConnex, PostAndGetArticles, CookieService],
-  bootstrap: [AppComponent]
+  providers: [
+    SerivceInscConnex,
+    PostAndGetArticles,
+    CookieService,
+    Upload,
+    { provide: Window, useValue: window },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -11,6 +11,7 @@
     align-items:center;
     margin:0px;
     box-shadow:0px 2px 2px #EAEDED;
+    z-index:2;
 }
 
 #header a{
@@ -20,6 +21,7 @@
     text-decoration:underline;
     padding:2px;
     color:white;
+    
 }
 
 #header #icon{
@@ -61,7 +63,8 @@
     align-items:center;
     justify-content:center;
     flex-direction:column;
-    z-index:1;
+    z-index:2;
+    border:2px solid white;
     
 
 }
