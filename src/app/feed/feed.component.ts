@@ -1,45 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { PostAndGetArticles } from '../services/PostArticles';
 import { NgForm } from '@angular/forms';
-import { Upload } from '../services/upload';
-
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
 export class FeedComponent implements OnInit {
-  
-   feeds :any = JSON.parse(localStorage.getItem('feed'));
- 
-  
+  /* VARIABLES */
+  cookieValue: any = this.cookies.get('idusercookie');
   data: any;
-  upload(event:any){
-    this.uplUp.uploadFile(event);
-    
+  uploadedFiles: Array<File>;
+  /* VARIABLES */
+  /* recuperation du fichier */
+  fileChange(element) {
+    this.uploadedFiles = element.target.files;
   }
 
-  // FONCTION RECUPERER ARTICLES
-  onGet() {
-    // envoit vers le backend
-    this.postAndGet.getPost();
-  }
-  // FONCTION POST
-  onPost(form: NgForm) {
-    // mettre en place
+  postArticles(form: NgForm) {
+    /* VARIABLES */
     this.data = form.value;
-    // envoit vers le backend
-    this.postAndGet.userPost(this.data);
-  }
-  constructor(
-    private postAndGet: PostAndGetArticles,
-    private uplUp: Upload
-  ) {}
-
-  // afficher sur le feed
-
-  ngOnInit(): void {
-    this.onGet();
+    let formData = new FormData();
+    formData.append('file', this.uploadedFiles[0], this.uploadedFiles[0].name);
+    
+    const fileData = formData.get('file');
+    const datForReq = { token : this.cookieValue , data: this.data };
+    formData.append('data', JSON.stringify(this.data));
+    console.log(datForReq);
+    console.log(fileData);
+    /* VARIABLES */
+    
+    this.http.post<any>('http://localhost:3000/home/create', formData).subscribe(
+      (reponse) => {
+        console.log(reponse);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     
   }
+
+  constructor(private cookies: CookieService, private http: HttpClient) {}
+
+  ngOnInit(): void {}
 }

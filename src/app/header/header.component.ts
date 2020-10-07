@@ -1,31 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { SerivceInscConnex } from '../services/ServicesLoginSignup';
-
+import { ServiceLog } from '../services/service.log';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  menu:boolean = true;
-  menuData:boolean;
+  /* variables headers */
   log = "Se deconnecter";
-  
-  onMenu(){
-    if(this.menuData){
-      return this.menuData = false;
-    }else{
-      return this.menuData = true;
+  menuData:boolean = false;
+
+  onMenu() {
+    if (this.menuData) {
+      return (this.menuData = false);
+    } else {
+      return (this.menuData = true);
     }
-
+  }
+  onDeco() {
+    this.servLog.deconnecter();
   }
 
-  onDeco(){
-    this.service.deconnecter();
-  }
-  constructor(private service : SerivceInscConnex) { }
+  constructor(private servLog : ServiceLog) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

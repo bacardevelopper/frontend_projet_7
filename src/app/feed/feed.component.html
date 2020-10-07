@@ -1,16 +1,15 @@
 <div id="feed">
-  <form (ngSubmit)="onPost(f)" #f="ngForm">
+  <form method="post" (ngSubmit)="postArticles(f)" #f="ngForm" enctype="multipart/form-data">
     <div id="post">
-      <input name="titre" typ="text" ngModel placeholder="Titre" required/>
-      <textarea name="texte"placeholder="Texte : votre texte ici!" ngModel required></textarea>
-      <input name="file" id="file" type="file" ngModel
-       (change)="upload($event)" required />
-      <button id="btn"  type="submit" [disabled]="f.invalid">Envoyer post</button>
+      <input name="titre" type="text" ngModel placeholder="Titre" required />
+      <textarea
+        name="texte"
+        placeholder="Texte : votre texte ici!"
+        ngModel
+        required
+      ></textarea>
+      <input name="image" id="file" type="file" (change)="fileChange($event)" ngModel/>
+      <button id="btn" type="submit" [disabled]="f.invalid">Envoyer post</button>
     </div>
   </form>
-  <div id="feedactus" *ngFor="let feed of feeds" >
-    <h1>{{feed.titre}}</h1>
-    <p>{{feed.texte}}</p>
-    <img src={{feed.urlfile}} />
-  </div>
 </div>

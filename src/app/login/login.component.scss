@@ -1,0 +1,39 @@
+#signinRouter{
+    position:fixed;
+    top:200px;
+    margin:0px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    width:100%;
+    left:0px;
+    right:0px;
+}
+
+#signinRouter form{
+    margin:0px;
+    display:flex;
+    flex-direction:column;
+}
+
+#signinRouter input{
+    width:220px;
+    height:20px;
+    margin:1px;
+    border:none;
+    border-bottom:2px solid #F4D03F;
+    box-shadow:0;
+    color:grey;
+}
+
+#signin{
+    background-color:#F4D03F;
+    border:none;
+    padding:7px;
+    color:white;
+    font-weight:bold;
+}
+h2{
+    color:grey;
+}
