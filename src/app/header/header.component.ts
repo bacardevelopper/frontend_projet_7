@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceLog } from '../services/service.log';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,8 +7,8 @@ import { ServiceLog } from '../services/service.log';
 })
 export class HeaderComponent implements OnInit {
   /* variables headers */
-  log = "Se deconnecter";
-  menuData:boolean = false;
+  log = 'Se deconnecter';
+  menuData: boolean = false;
 
   onMenu() {
     if (this.menuData) {
@@ -18,10 +18,9 @@ export class HeaderComponent implements OnInit {
     }
   }
   onDeco() {
-    this.servLog.deconnecter();
+   
   }
-
-  constructor(private servLog : ServiceLog) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

@@ -5,18 +5,21 @@ import { HttpClient } from '@angular/common/http';
 /* importation du router */
 import { Router } from '@angular/router';
 @Injectable()
-
 export class ServiceLog {
-  // 
+  //
   leToken: any;
   useremail: any;
+  token: any = this.cookieService.get('idusercookie');
+  tokenJson = this.token;
+  arrayDataGet: any;
+
   // injection dans le constructor
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
     private router: Router
   ) {}
-  
+
   ngOnInit() {}
   /* --------------------------------------------------------------------- */
   // METHODE POST VERS SIGNUP BACKEND
@@ -52,9 +55,26 @@ export class ServiceLog {
     );
   }
   /* -------------------------------------------------------- */
-  deconnecter(){
+  deconnecter() {
     this.cookieService.delete('idusercookie');
     document.location.replace('http://localhost:4200/login');
     localStorage.removeItem('feed');
+  }
+  /* -------------------------------------------------------- */
+  getPost() {
+    let formData = new FormData();
+    formData.append('token', this.token);
+    this.http.post('http://localhost:3000/home/read/all', formData).subscribe(
+      (dataRes) => {
+        this.arrayDataGet = JSON.stringify(dataRes);
+        console.log('token : ' + this.token);
+        console.log('envoit terminer : ' + JSON.stringify(dataRes));
+        localStorage.setItem('feed', JSON.stringify(dataRes));
+        console.table(this.arrayDataGet);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

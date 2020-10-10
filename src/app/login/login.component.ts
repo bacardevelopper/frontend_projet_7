@@ -8,12 +8,15 @@ import { ServiceLog } from '../services/service.log';
 })
 export class LoginComponent implements OnInit {
   // fonction d'inscription
+  
   onSignin(form: NgForm) {
+    let formData = new FormData();
+    formData.append('user', JSON.stringify(form.value))
     const data = form.value;
-    this.servLog.signin(data);
 
+    this.log.signin(formData);
   }
-  constructor(private servLog : ServiceLog) {}
+  constructor(private log: ServiceLog) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

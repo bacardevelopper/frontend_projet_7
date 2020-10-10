@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceLog } from '../services/service.log';
 import { NgForm } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss'],
+  styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
+
   /* VARIABLES */
   cookieValue: any = this.cookies.get('idusercookie');
   data: any;
@@ -26,6 +28,8 @@ export class FeedComponent implements OnInit {
     
     const fileData = formData.get('file');
     const datForReq = { token : this.cookieValue , data: this.data };
+
+    formData.append('cookie', JSON.stringify(this.cookieValue))
     formData.append('data', JSON.stringify(this.data));
     console.log(datForReq);
     console.log(fileData);
@@ -45,4 +49,5 @@ export class FeedComponent implements OnInit {
   constructor(private cookies: CookieService, private http: HttpClient) {}
 
   ngOnInit(): void {}
+
 }

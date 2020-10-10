@@ -4,15 +4,20 @@ import { ServiceLog } from '../services/service.log';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss'],
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+
   // fonction d'inscription
   onSignup(form: NgForm) {
+    let formData = new FormData();
+    formData.append('user', JSON.stringify(form.value))
     const data = form.value;
-    this.SerLog.signup(data);
+    this.SerLog.signup(formData);
   }
-  constructor(private SerLog : ServiceLog) {}
+  constructor(private SerLog : ServiceLog) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
 }
