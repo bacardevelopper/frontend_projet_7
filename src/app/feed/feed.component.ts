@@ -6,14 +6,14 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  styleUrls: ['./feed.component.scss'],
 })
 export class FeedComponent implements OnInit {
-
   /* VARIABLES */
   cookieValue: any = this.cookies.get('idusercookie');
   data: any;
   uploadedFiles: Array<File>;
+  forum:any;
   /* VARIABLES */
   /* recuperation du fichier */
   fileChange(element) {
@@ -25,29 +25,46 @@ export class FeedComponent implements OnInit {
     this.data = form.value;
     let formData = new FormData();
     formData.append('file', this.uploadedFiles[0], this.uploadedFiles[0].name);
-    
-    const fileData = formData.get('file');
-    const datForReq = { token : this.cookieValue , data: this.data };
 
-    formData.append('cookie', JSON.stringify(this.cookieValue))
+    const fileData = formData.get('file');
+    const datForReq = { token: this.cookieValue, data: this.data };
+
+    formData.append('cookie', JSON.stringify(this.cookieValue));
     formData.append('data', JSON.stringify(this.data));
     console.log(datForReq);
     console.log(fileData);
     /* VARIABLES */
-    
-    this.http.post<any>('http://localhost:3000/home/create', formData).subscribe(
+
+    this.http
+      .post<any>('http://localhost:3000/home/create', formData)
+      .subscribe(
+        (reponse) => {
+          console.log(reponse);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+  getAllPost() {
+    let formData = new FormData();
+    formData.append('cookie', JSON.stringify(this.cookieValue));
+
+    this.http.post('http://localhost:3000/home/read/all', formData).subscribe(
       (reponse) => {
         console.log(reponse);
+        this.forum = reponse;
+      
       },
       (error) => {
         console.log(error);
       }
     );
-    
   }
 
   constructor(private cookies: CookieService, private http: HttpClient) {}
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    this.getAllPost();   
+  }
 }

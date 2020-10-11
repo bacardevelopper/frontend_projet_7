@@ -1,16 +1,33 @@
-  
 <div id="feed">
-    <form method="post" (ngSubmit)="postArticles(f)" #f="ngForm" enctype="multipart/form-data">
-      <div id="post">
-        <input name="titre" type="text" ngModel placeholder="Titre" required />
-        <textarea
-          name="texte"
-          placeholder="Texte : votre texte ici!"
-          ngModel
-          required
-        ></textarea>
-        <input name="image" id="file" type="file" (change)="fileChange($event)" ngModel/>
-        <button id="btn" type="submit" [disabled]="f.invalid">Envoyer post</button>
-      </div>
-    </form>
+  <form
+    method="post"
+    (ngSubmit)="postArticles(f)"
+    #f="ngForm"
+    enctype="multipart/form-data"
+  >
+    <div id="post">
+      <input name="titre" type="text" ngModel placeholder="Titre" required />
+      <textarea
+        name="texte"
+        placeholder="Texte : votre texte ici!"
+        ngModel
+        required
+      ></textarea>
+      <input
+        name="image"
+        id="file"
+        type="file"
+        (change)="fileChange($event)"
+        ngModel
+      />
+      <button id="btn" type="submit" [disabled]="f.invalid">
+        Envoyer post
+      </button>
+    </div>
+  </form>
+  <div id="getpostall" *ngFor="let oneArt of forum">
+    <h3>{{ oneArt.titre }}</h3>
+    <p>{{ oneArt.texte }}</p>
+    <img [src]="oneArt.urlfile" />
   </div>
+</div>
