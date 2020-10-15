@@ -1,0 +1,10 @@
+<div id="getownpost">
+    <div id="post" *ngFor="let post of posts">
+        <h3>{{post.titre}}</h3>
+        <p>{{post.texte}}</p>
+        <img [src]="post.urlfile"/>
+        <button [id]="post.idpost">Modifier</button><button [id]="post.idpost" (click)="delete($event)">Supprimer</button>
+        <hr/>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+#getownpost {
+  position: absolute;
+  top: 125px;
+  width: 95%;
+  min-height: 120px;
+  background-color: grey;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#post {
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  width: 80%;
+}
+
+#post img {
+  width: 100%;
+}
+
+p, h3{
+    margin:2px;
+}
+
+hr{
+    width:100%;
+    height:2px;
+    background-color:white;
+}
+
+button{
+    margin:1px;
+}
