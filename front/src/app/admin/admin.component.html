@@ -1,0 +1,8 @@
+<div id="admin">
+    <div id="getpostall" *ngFor="let oneArt of forum">
+        <h3>{{ oneArt.titre }}</h3>
+        <p>{{ oneArt.texte }}</p>
+        <img [src]="oneArt.urlfile" />
+        <button (click)="moderation($event)" [id]="oneArt.idpost">Moderer</button>
+      </div>
+</div>

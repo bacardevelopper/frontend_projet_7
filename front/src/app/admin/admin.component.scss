@@ -1,0 +1,45 @@
+#admin {
+  position: absolute;
+  top: 125px;
+  background-color: grey;
+  min-height: 100px;
+  margin: 0px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+#getpostall {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: center;
+}
+
+#getpostall img {
+  width: 80%;
+}
+
+#getpostall h3 {
+  font-size: 25px;
+  color: white;
+  padding: 0px;
+  margin: 1px;
+}
+
+#getpostall p {
+  width: 80%;
+  word-wrap: break-word;
+}
+
+#getpostall button{
+    margin:10px;
+    width:190px;
+    border:0px;
+    background-color:green;
+    font-weight:bold;
+    color:white;
+}

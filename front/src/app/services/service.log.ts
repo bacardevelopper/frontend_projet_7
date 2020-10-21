@@ -57,6 +57,7 @@ export class ServiceLog {
   }
   /* -------------------------------------------------------- */
   deconnecter() {
+    document.location.replace('http://localhost:4200/login');
     this.cookieService.delete('idusercookie');
     document.location.replace('http://localhost:4200/login');
   }

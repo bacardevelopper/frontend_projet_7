@@ -12,7 +12,12 @@ import { HttpClient } from '@angular/common/http';
 export class OwnpostComponent implements OnInit {
   cookieValue: any = this.cookie.get('idusercookie');
   posts: any;
-  constructor(private cookie: CookieService, private http: HttpClient, private router : Router, private servLog : ServiceLog) {}
+  constructor(
+    private cookie: CookieService,
+    private http: HttpClient,
+    private router: Router,
+    private servLog: ServiceLog
+  ) {}
   /* ----------------------------------------------------------------------*/
   ownPost() {
     let formData = new FormData();
@@ -27,7 +32,7 @@ export class OwnpostComponent implements OnInit {
       }
     );
   }
- 
+
   /* ----------------------------------------------------------------- */
   // suppression de l'article : recuperation de l'id de type string
   delete(evt) {
@@ -57,7 +62,7 @@ export class OwnpostComponent implements OnInit {
     this.ownPost();
   }
 
-   mdf(evt){
+  mdf(evt) {
     this.servLog.update(evt);
   }
 }
