@@ -1,3 +1,7 @@
 <div id="profile">
-
+    <h4>Modifer mot de passe</h4>
+    <form (ngSubmit)="onModifyMdp(f)" #f="ngForm">
+        <input placeholder="##########" type="text" name="mdp" ngModel required/>
+        <button>Changer</button>
+    </form>
 </div>

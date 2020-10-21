@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 // importer http client
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
+//
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.scss'],
 })
+//
 export class ProfilComponent implements OnInit {
   token: any = this.cookie.get('idusercookie');
   profileRequete() {
@@ -20,6 +23,24 @@ export class ProfilComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  //
+  onModifyMdp(form: NgForm) {
+    let formData = new FormData();
+    formData.append('cookie', JSON.stringify(this.token));
+    formData.append('mdp', JSON.stringify(form.value.mdp));
+    const data = form.value;
+    console.log(data);
+    this.http
+      .put('http://localhost:3000/home/modifier/mdp', formData)
+      .subscribe(
+        (reponse) => {
+          console.log(reponse);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
   constructor(private cookie: CookieService, private http: HttpClient) {}
 
