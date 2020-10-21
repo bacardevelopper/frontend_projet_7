@@ -1,0 +1,35 @@
+<form
+  method="post"
+  (ngSubmit)="postModify(f)"
+  #f="ngForm"
+  enctype="multipart/form-data"
+>
+  <div id="modify">
+    <input
+      placeholder="Titre"
+      type="text"
+      ngModel
+      name="titre"
+      required
+      [(ngModel)]="titre"
+    />
+    <textarea
+      placeholder="Texte : votre texte ici!"
+      ngModel
+      name="texte"
+      required
+      [(ngModel)]="texte"
+    ></textarea>
+    <input
+      id="file"
+      type="file"
+      ngModel
+      name="file"
+      (change)="fileChange($event)"
+      
+    />
+    <button id="btn" [disabled]="f.invalid" type="submit">
+      Poster modification
+    </button>
+  </div>
+</form>

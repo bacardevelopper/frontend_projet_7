@@ -12,13 +12,15 @@ import { SignupComponent } from './signup/signup.component';
 import { FeedComponent } from './feed/feed.component';
 import { OwnpostComponent } from './ownpost/ownpost.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ModifyComponent } from './modify/modify.component';
 /* un array qui contient le chemin et le component qui correspond */
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forum', component: FeedComponent },
   { path: 'posts', component: OwnpostComponent },
-  { path: 'profil', component: ProfilComponent }
+  { path: 'profil', component: ProfilComponent },
+  { path: 'posts/modify', component: ModifyComponent }
 ];
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
     FeedComponent,
     OwnpostComponent,
     ProfilComponent,
+    ModifyComponent,
   ],
   imports: [
     BrowserModule,

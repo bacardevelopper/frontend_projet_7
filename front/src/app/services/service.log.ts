@@ -77,4 +77,18 @@ export class ServiceLog {
       }
     );
   }
+  dataNumb: any;
+  update(evt) {
+    console.log(evt);
+    let target = evt.target || evt.srcElement || evt.currentTarget;
+    let idAtt = target.attributes.id;
+    let value = idAtt.nodeValue;
+    console.log(typeof value);
+    console.log(value);
+    this.dataNumb = Number(value);
+    console.log(this.dataNumb);
+    this.cookieService.delete('idmodify');
+    document.location.replace('http://localhost:4200/posts/modify');
+    this.cookieService.set('idmodify', this.dataNumb);
+  }
 }

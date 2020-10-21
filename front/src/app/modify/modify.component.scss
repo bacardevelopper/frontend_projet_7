@@ -1,0 +1,33 @@
+form{
+    position:fixed;
+    top:120px;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    
+}
+
+#modify{
+    display:flex;
+    flex-direction:column ;
+    width:95%;
+    justify-content:center;
+}
+
+#modify input , #modify textarea{
+    margin:5px;
+
+}
+
+#modify textarea{
+    min-height:100px;
+}
+
+#modify button{
+    background-color:#C0392B;
+    color:black;
+    font-weight:bold;
+    height:25px;
+    
+    border:0px;
+}

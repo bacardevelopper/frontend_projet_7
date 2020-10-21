@@ -65,6 +65,7 @@ export class FeedComponent implements OnInit {
   constructor(private cookies: CookieService, private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.cookies.delete('idmodify');
     this.getAllPost();   
   }
 }
