@@ -19,15 +19,34 @@
         type="file"
         (change)="fileChange($event)"
         ngModel
+        required
       />
       <button id="btn" type="submit" [disabled]="f.invalid">
         Envoyer post
       </button>
     </div>
   </form>
+  <!-- la publication -->
   <div id="getpostall" *ngFor="let oneArt of forum">
     <h3>{{ oneArt.titre }}</h3>
     <p>{{ oneArt.texte }}</p>
     <img [src]="oneArt.urlfile" />
+    <div id="spaceComment">
+      <!-- espace commentaire -->
+      <form
+        [id]="oneArt.idpost"
+        method="post"
+        (ngSubmit)="postComment(c, $event)"
+        #c="ngForm"
+      >
+        <input type="text" name="commentaire" id="commentRecup" ngModel />
+        <button type="submit">commenter</button>
+      </form>
+      <button (click)="getComment($event)" [id]="oneArt.idpost">
+        Voir commentaire
+      </button>
+      <div id="lesComs" *ngIf="show">
+      </div>
+    </div>
   </div>
 </div>

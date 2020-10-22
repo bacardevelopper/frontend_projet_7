@@ -71,3 +71,17 @@
     width:80%;
     word-wrap:break-word;
 }
+
+#spaceComment{
+    margin-top:5px;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+#lesComs{
+    margin-top:5px;
+    width:100%;
+    min-height:10px;
+    background-color:white;
+}

@@ -13,7 +13,9 @@ export class FeedComponent implements OnInit {
   cookieValue: any = this.cookies.get('idusercookie');
   data: any;
   uploadedFiles: Array<File>;
-  forum:any;
+  forum: any;
+  dataComment:any;
+  show:boolean = false;
   /* VARIABLES */
   /* recuperation du fichier */
   fileChange(element) {
@@ -40,6 +42,7 @@ export class FeedComponent implements OnInit {
       .subscribe(
         (reponse) => {
           console.log(reponse);
+          this.dataComment = reponse;
         },
         (error) => {
           console.log(error);
@@ -54,7 +57,6 @@ export class FeedComponent implements OnInit {
       (reponse) => {
         console.log(reponse);
         this.forum = reponse;
-      
       },
       (error) => {
         console.log(error);
@@ -62,10 +64,56 @@ export class FeedComponent implements OnInit {
     );
   }
 
+  postComment(form: NgForm, evt) {
+    let target = evt.target || evt.srcElement || evt.currentTarget;
+    let idAtt = target.attributes.id;
+    let value = idAtt.nodeValue;
+    /* -------------------------------------- */
+    const dataNumb = Number(value);
+    console.log(dataNumb);
+    console.log(form.value);
+    /* poster le commentaire */
+    let formData = new FormData();
+    formData.append('cookie', JSON.stringify(this.cookieValue));
+    formData.append('commentaire', JSON.stringify(form.value.commentaire));
+    formData.append('idArticle', JSON.stringify(dataNumb));
+
+    this.http.post('http://localhost:3000/home/comment', formData).subscribe(
+      (reponse) => {
+        console.log(reponse);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getComment(evt) {
+    let target = evt.target || evt.srcElement || evt.currentTarget;
+    let idAtt = target.attributes.id;
+    let value = idAtt.nodeValue;
+    const dataNumb = Number(value);
+    let formData = new FormData();
+    formData.append('cookie', JSON.stringify(this.cookieValue));
+    formData.append('idcmt', JSON.stringify(dataNumb));
+    console.log(dataNumb);
+    /* -------------------------------------- */
+
+    this.http
+      .post('http://localhost:3000/home/all/comment', formData)
+      .subscribe(
+        (reponse) => {
+          console.log(reponse);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
   constructor(private cookies: CookieService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.cookies.delete('idmodify');
-    this.getAllPost();   
+    this.getAllPost();
   }
 }
