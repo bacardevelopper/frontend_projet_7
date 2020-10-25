@@ -14,8 +14,8 @@ export class FeedComponent implements OnInit {
   data: any;
   uploadedFiles: Array<File>;
   forum: any;
-  dataComment:any;
-  show:boolean = false;
+  dataComment: any;
+  show: boolean = false;
   /* VARIABLES */
   /* recuperation du fichier */
   fileChange(element) {
@@ -98,12 +98,13 @@ export class FeedComponent implements OnInit {
     formData.append('idcmt', JSON.stringify(dataNumb));
     console.log(dataNumb);
     /* -------------------------------------- */
-
     this.http
       .post('http://localhost:3000/home/all/comment', formData)
       .subscribe(
         (reponse) => {
           console.log(reponse);
+          this.show = true;
+          this.dataComment = reponse;
         },
         (error) => {
           console.log(error);

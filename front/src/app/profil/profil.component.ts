@@ -27,11 +27,11 @@ export class ProfilComponent implements OnInit {
   //
   onModifyMdp(form: NgForm) {
     let formData = new FormData();
+    const data = form.value;
     formData.append('cookie', JSON.stringify(this.token));
     formData.append('mdp', JSON.stringify(form.value.mdp));
-    const data = form.value;
-    console.log(data);
-    this.http
+    if(form.value.mdp !== ""){
+      this.http
       .put('http://localhost:3000/home/modifier/mdp', formData)
       .subscribe(
         (reponse) => {
@@ -41,6 +41,25 @@ export class ProfilComponent implements OnInit {
           console.log(error);
         }
       );
+    }else{
+      console.log("champ vide");
+    }
+    
+    console.log(data);
+
+  }
+  /* suppression utilisateur */
+  deleteUser(){
+    let formData = new FormData();
+    formData.append('cookie', JSON.stringify(this.token));
+    this.http.post('http://localhost:3000/home/delete/user', formData).subscribe(
+      (reponse) => {
+        console.log(reponse);
+      },
+      (error) => {
+        console.log(error);
+      }
+    ); 
   }
   constructor(private cookie: CookieService, private http: HttpClient) {}
 

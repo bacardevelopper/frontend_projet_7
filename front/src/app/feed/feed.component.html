@@ -1,3 +1,6 @@
+<div *ngIf="show" id="commentaires">
+  <p *ngFor="let post of dataComment">{{ post.commentaire }}</p>
+</div>
 <div id="feed">
   <form
     method="post"
@@ -45,8 +48,6 @@
       <button (click)="getComment($event)" [id]="oneArt.idpost">
         Voir commentaire
       </button>
-      <div id="lesComs" *ngIf="show">
-      </div>
     </div>
   </div>
 </div>
