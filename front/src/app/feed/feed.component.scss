@@ -1,6 +1,6 @@
 #feed{
     min-height:250px;
-    background-color:#F7F9F9;
+    background-color:#1298EF;
     position:absolute;
     top:100px;
     margin:0px;
@@ -81,15 +81,24 @@
     position: absolute;
     top:125px;
     min-height:100px;
-    background-color:grey;
+    background-color:white;
     left:10px;
     right:10px;
     z-index:2;
     color:white;
+    border:2px solid black;
 }
 
 #commentaires p{
     text-align:center;
     margin:2px;
     padding:0px;
+}
+
+#blue{
+    color:blue;
+}
+
+#green{
+    color:green;
 }

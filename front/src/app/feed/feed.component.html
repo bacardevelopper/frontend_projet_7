@@ -1,5 +1,7 @@
 <div *ngIf="show" id="commentaires">
-  <p *ngFor="let post of dataComment">{{ post.commentaire }}</p>
+  <p *ngFor="let post of dataComment">
+ <span id="blue">{{ post.commentaire }}  </span><span id="green"> date : {{post.datecoment}}</span>
+  </p>
 </div>
 <div id="feed">
   <form
