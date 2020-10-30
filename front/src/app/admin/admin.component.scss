@@ -1,14 +1,14 @@
 #admin {
   position: absolute;
   top: 125px;
-  background-color: grey;
+  background-color: #F7F9F9;
   min-height: 100px;
   margin: 0px;
   left: 10px;
   right: 10px;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
 }
 
 #getpostall {
@@ -25,7 +25,7 @@
 
 #getpostall h3 {
   font-size: 25px;
-  color: white;
+  color: black;
   padding: 0px;
   margin: 1px;
 }
@@ -35,11 +35,32 @@
   word-wrap: break-word;
 }
 
-#getpostall button{
-    margin:10px;
-    width:190px;
-    border:0px;
-    background-color:green;
-    font-weight:bold;
-    color:white;
+#getpostall button {
+  margin: 10px;
+  width: 190px;
+  border: 0px;
+  background-color: #1ABC9C;
+  font-weight: bold;
+  color: white;
+  margin:5px;
+  padding:6px;
+  border-radius:10px;
+}
+
+#adminStat {
+  background-color:#C0392B;
+  min-height: 100px;
+  margin: 0px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  border-radius:14px;
+}
+
+#adminStat p{
+  margin:2px;
+  font-weight:bold;
+  color:white;
 }

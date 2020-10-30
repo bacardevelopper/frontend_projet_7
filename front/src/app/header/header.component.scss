@@ -3,7 +3,7 @@
     top:0px;
     width:100%;
     height:80px;
-    background-color:white;
+    background-color:#1298EF;
     left:0px;
     right:0px;
     color:white;
@@ -28,6 +28,7 @@
     width:55px;
     height:auto;
     margin-left:10px;
+    border-radius:50%;
 }
 
 #menu {
@@ -38,17 +39,19 @@
 }
 
 #menu:hover{
-    background-color:#EAECEE;
+    background-color:black;
+    border-radius:5px;
 }
 
 #btn{
-    background-color:#F4D03F;
+    background-color:#E74C3C;
     border:none;
     padding:10px;
     position:fixed;
     right:100px;
     color:white;
     font-weight:bold;
+    border-radius:10px;
 }
 
 #menulist{
@@ -56,7 +59,7 @@
     top:80px;
     right:0px;
     padding:10px;
-    background-color:#F4D03F;
+    background-color:#C0392B;
     height:290px;
     width:200px;
     display:flex;
@@ -73,12 +76,12 @@
     text-align:center;
     font-weight:bold;
     font-size:30px;
-    color:white;
+    color:black;
     padding:10px;
     text-decoration:none;
 }
 
 #menulist a:hover{
     background-color:#ECF0F1;
-    color:#F4D03F;
+    color:#C0392B;
 }

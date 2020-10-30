@@ -1,8 +1,15 @@
 <div id="admin">
-    <div id="getpostall" *ngFor="let oneArt of forum">
-        <h3>{{ oneArt.titre }}</h3>
-        <p>{{ oneArt.texte }}</p>
-        <img [src]="oneArt.urlfile" />
-        <button (click)="moderation($event)" [id]="oneArt.idpost">Moderer</button>
-      </div>
+  <div id="adminStat">
+    <p>Nombres d'articles : {{ nbrArtc }}</p>
+    <p>Nombres de commentaires : {{ nbrComent }}</p>
+    <p>Les 3 derniers participant</p>
+    <!-- afficher les 3 derniers participants-->
+    <span *ngFor="let lastUser of lastU">{{ lastUser.email }}</span>
+  </div>
+  <div id="getpostall" *ngFor="let oneArt of forum">
+    <h3>{{ oneArt.titre }}</h3>
+    <p>{{ oneArt.texte }}</p>
+    <img [src]="oneArt.urlfile" />
+    <button (click)="moderation($event)" [id]="oneArt.idpost">Moderer</button>
+  </div>
 </div>

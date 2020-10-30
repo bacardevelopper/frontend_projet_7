@@ -8,12 +8,17 @@ import { CookieService } from 'ngx-cookie-service';
 })
 /* ----------------------------------------------------------------------------------- */
 export class AdminComponent implements OnInit {
+  lastU:any
+  nbrComent:any;
+  nbrArtc:any;
+  nbr:any;
   forum: any;
   cookieValue: any = this.cookie.get('idusercookie');
-  constructor(private http: HttpClient, private cookie: CookieService) {}
+  constructor(private http: HttpClient, private cookie: CookieService) { }
 
   ngOnInit(): void {
     this.getAllPost();
+    this.recupStats()
   }
   /* ----------------------------------------------------------------------------------- */
   getAllPost() {
@@ -47,6 +52,26 @@ export class AdminComponent implements OnInit {
     this.http.post('http://localhost:3000/home/moderer', formData).subscribe(
       (reponse) => {
         console.log(reponse);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  /* les statistiques */
+  recupStats() {
+    let formData = new FormData();
+    formData.append('cookie', JSON.stringify(this.cookieValue));
+    this.http.post('http://localhost:3000/home/stats', formData).subscribe(
+      (reponse) => {
+        console.log(reponse);
+        this.nbr = reponse;
+        this.nbrArtc = this.nbr.nbr;
+        this.nbrComent = this.nbr.nbrComent;
+        this.lastU = this.nbr.users;
+        console.log(this.lastU);
+
       },
       (error) => {
         console.log(error);

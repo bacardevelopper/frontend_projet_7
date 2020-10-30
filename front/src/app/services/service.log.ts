@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
 @Injectable()
 export class ServiceLog {
   //
+  notification:any;
   leToken: any;
   useremail: any;
   token: any = this.cookieService.get('idusercookie');
   tokenJson = this.token;
   arrayDataGet: any;
-
   // injection dans le constructor
   constructor(
     private http: HttpClient,
@@ -29,11 +29,11 @@ export class ServiceLog {
 
       .subscribe(
         (dataRes) => {
-          console.log('envoit terminer : ' + JSON.stringify(dataRes));
+          //console.log('envoit terminer : ' + JSON.stringify(dataRes));
           document.location.replace('http://localhost:4200/login');
         },
         (error) => {
-          console.log(error);
+          //console.log(error);
         }
       );
   }
@@ -43,15 +43,15 @@ export class ServiceLog {
     this.http.post('http://localhost:3000/home/login', data).subscribe(
       (dataRes) => {
         this.leToken = dataRes;
-        console.log(data);
-        console.log(
+        //console.log(data);
+        /*console.log(
           'envoit terminer : ' + JSON.stringify(this.leToken.userToken)
-        );
+        );*/
         this.cookieService.set('idusercookie', this.leToken.userToken);
         document.location.replace('http://localhost:4200/forum');
       },
       (error) => {
-        console.log(error);
+        //console.log(error);
       }
     );
   }
@@ -68,26 +68,26 @@ export class ServiceLog {
     this.http.post('http://localhost:3000/home/read/all', formData).subscribe(
       (dataRes) => {
         this.arrayDataGet = JSON.stringify(dataRes);
-        console.log('token : ' + this.token);
-        console.log('envoit terminer : ' + JSON.stringify(dataRes));
+        // console.log('token : ' + this.token);
+        // console.log('envoit terminer : ' + JSON.stringify(dataRes));
         localStorage.setItem('feed', JSON.stringify(dataRes));
-        console.table(this.arrayDataGet);
+        // console.table(this.arrayDataGet);
       },
       (error) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
   dataNumb: any;
   update(evt) {
-    console.log(evt);
+    // console.log(evt);
     let target = evt.target || evt.srcElement || evt.currentTarget;
     let idAtt = target.attributes.id;
     let value = idAtt.nodeValue;
-    console.log(typeof value);
-    console.log(value);
+    // console.log(typeof value);
+    // console.log(value);
     this.dataNumb = Number(value);
-    console.log(this.dataNumb);
+    // console.log(this.dataNumb);
     this.cookieService.delete('idmodify');
     document.location.replace('http://localhost:4200/posts/modify');
     this.cookieService.set('idmodify', this.dataNumb);

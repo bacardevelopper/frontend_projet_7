@@ -8,7 +8,7 @@ import { ServiceLog } from '../services/service.log';
 })
 export class LoginComponent implements OnInit {
   // fonction d'inscription
-  
+  not = this.log.notification;
   onSignin(form: NgForm) {
     let formData = new FormData();
     formData.append('user', JSON.stringify(form.value))
