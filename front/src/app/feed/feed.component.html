@@ -35,6 +35,7 @@
   <div id="getpostall" *ngFor="let oneArt of forum">
     <h3>{{ oneArt.titre }}</h3>
     <p>{{ oneArt.texte }}</p>
+    <p>De : {{ oneArt.usergenerate }}</p>
     <img [src]="oneArt.urlfile" />
     <div id="spaceComment">
       <!-- espace commentaire -->
