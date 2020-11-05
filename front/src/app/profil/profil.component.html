@@ -1,8 +1,15 @@
 <div id="profile">
-    <h4>Modifer mot de passe</h4>
-    <form (ngSubmit)="onModifyMdp(f)" #f="ngForm">
-        <input placeholder="##########" type="text" name="mdp" ngModel required/>
-        <button>Changer</button>
-    </form>
-    <button id="deleteUser" (click)="deleteUser()">Supprimer compte</button>
+  <h2>Bienvenu sur votre profile : {{ pseudo }}</h2>
+  <h4>Modifer mot de passe</h4>
+  <form (ngSubmit)="onModifyMdp(f)" #f="ngForm">
+    <input placeholder="##########" type="text" name="mdp" ngModel required />
+    <button type="submit" [disabled]="f.invalid">Changer mot de passe</button>
+  </form>
+  <!-- modifier pseudo -->
+  <h4>Modifer mot pseudo</h4>
+  <form (ngSubmit)="onModifyPseudo(p)"  #p="ngForm">
+    <input placeholder="pseudo" type="text" name="pseudo" ngModel required />
+    <button type="submit" [disabled]="p.invalid">Changer pseudo</button>
+  </form>
+  <button id="deleteUser" (click)="deleteUser()">Supprimer compte</button>
 </div>

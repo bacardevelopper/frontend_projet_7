@@ -70,7 +70,6 @@ export class ServiceLog {
         this.arrayDataGet = JSON.stringify(dataRes);
         // console.log('token : ' + this.token);
         // console.log('envoit terminer : ' + JSON.stringify(dataRes));
-        localStorage.setItem('feed', JSON.stringify(dataRes));
         // console.table(this.arrayDataGet);
       },
       (error) => {

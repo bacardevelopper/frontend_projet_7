@@ -50,6 +50,7 @@ export class ModifyComponent implements OnInit {
     this.http.put<any>('http://localhost:3000/home/update', formData).subscribe(
       (reponse) => {
         console.log(reponse);
+        document.location.replace('http://localhost:4200/forum');
       },
       (error) => {
         console.log(error);

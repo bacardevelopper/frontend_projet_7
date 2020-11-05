@@ -2,9 +2,14 @@
   <div id="adminStat">
     <p>Nombres d'articles : {{ nbrArtc }}</p>
     <p>Nombres de commentaires : {{ nbrComent }}</p>
-    <p>Les 3 derniers participant</p>
+    <p>Les participant</p>
     <!-- afficher les 3 derniers participants-->
-    <span *ngFor="let lastUser of lastU">{{ lastUser.email }}</span>
+    <span *ngFor="let lastUser of lastU"
+      >Pseudo: {{ lastUser.generateid }}, Titre: {{ lastUser.titre }}, Date:{{
+        lastUser.datepost
+      }}
+      <hr />
+    </span>
   </div>
   <div id="getpostall" *ngFor="let oneArt of forum">
     <h3>{{ oneArt.titre }}</h3>

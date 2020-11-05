@@ -52,6 +52,7 @@ export class AdminComponent implements OnInit {
     this.http.post('http://localhost:3000/home/moderer', formData).subscribe(
       (reponse) => {
         console.log(reponse);
+        document.location.replace('http://localhost:4200/forum');
       },
       (error) => {
         console.log(error);

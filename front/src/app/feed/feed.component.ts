@@ -46,6 +46,7 @@ export class FeedComponent implements OnInit {
           this.dataComment = reponse;
         },
         (error) => {
+          alert("erreur ajout de commentaire");
           console.log(error);
         }
       );
