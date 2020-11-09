@@ -12,9 +12,7 @@ git clone https://github.com/bacardevelopper/frontend_projet_7.git
 cd front
 ```
 
-### instructions apres le clone
 #### reinstaller modules nodejs
-
 ```
 // reinstaller modules
 npm i
@@ -22,4 +20,11 @@ npm i
 ng serve
 // acceder au frontend sur:
 localhost:4200
+```
+
+#### sur l'interface graphique connectez vous avec ces ID
+Pour etre moderateur (admin) du site web
+```
+// email  : admin@groupmania.fr
+// mdp : mayana976
 ```
