@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
-
 export class FeedComponent implements OnInit {
   /* VARIABLES */
   cookieValue: any = this.cookies.get('idusercookie');
@@ -23,6 +22,9 @@ export class FeedComponent implements OnInit {
     this.uploadedFiles = element.target.files;
   }
 
+  notShow(){
+    this.show = false;
+  }
   postArticles(form: NgForm) {
     /* VARIABLES */
     this.data = form.value;
@@ -34,20 +36,22 @@ export class FeedComponent implements OnInit {
 
     formData.append('cookie', JSON.stringify(this.cookieValue));
     formData.append('data', JSON.stringify(this.data));
-    console.log(datForReq);
-    console.log(fileData);
+    //console.log(datForReq);
+    //console.log(fileData);
     /* VARIABLES */
 
     this.http
       .post<any>('http://localhost:3000/home/create', formData)
       .subscribe(
         (reponse) => {
-          console.log(reponse);
+         // console.log(reponse);
           this.dataComment = reponse;
+          alert('article bien posté : en cours de moderation');
+          document.location.replace('http://localhost:4200/forum');
         },
         (error) => {
-          alert("erreur ajout de commentaire");
-          console.log(error);
+          
+          //console.log(error);
         }
       );
   }
@@ -57,11 +61,13 @@ export class FeedComponent implements OnInit {
 
     this.http.post('http://localhost:3000/home/read/all', formData).subscribe(
       (reponse) => {
-        console.log(reponse);
+        //console.log(reponse);
         this.forum = reponse;
       },
       (error) => {
-        console.log(error);
+        //console.log(error);
+        alert('non connecté : redirection');
+        document.location.replace('http://localhost:4200/login');
       }
     );
   }
@@ -72,8 +78,8 @@ export class FeedComponent implements OnInit {
     let value = idAtt.nodeValue;
     /* -------------------------------------- */
     const dataNumb = Number(value);
-    console.log(dataNumb);
-    console.log(form.value);
+    //console.log(dataNumb);
+    //console.log(form.value);
     /* poster le commentaire */
     let formData = new FormData();
     formData.append('cookie', JSON.stringify(this.cookieValue));
@@ -82,10 +88,13 @@ export class FeedComponent implements OnInit {
 
     this.http.post('http://localhost:3000/home/comment', formData).subscribe(
       (reponse) => {
-        console.log(reponse);
+       // console.log(reponse);
+       alert('commentaire bien ajouté');
+        document.location.replace('http://localhost:4200/forum');
       },
       (error) => {
-        console.log(error);
+        //console.log(error);
+        alert('erreur : sur le post de commentaire');
       }
     );
   }
@@ -98,18 +107,18 @@ export class FeedComponent implements OnInit {
     let formData = new FormData();
     formData.append('cookie', JSON.stringify(this.cookieValue));
     formData.append('idcmt', JSON.stringify(dataNumb));
-    console.log(dataNumb);
+   // console.log(dataNumb);
     /* -------------------------------------- */
     this.http
       .post('http://localhost:3000/home/all/comment', formData)
       .subscribe(
         (reponse) => {
-          console.log(reponse);
+          //console.log(reponse);
           this.show = true;
           this.dataComment = reponse;
         },
         (error) => {
-          console.log(error);
+         // console.log(error);
         }
       );
   }

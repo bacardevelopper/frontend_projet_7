@@ -67,7 +67,6 @@
     justify-content:center;
     flex-direction:column;
     z-index:2;
-    border:2px solid white;
     
 
 }
@@ -83,5 +82,6 @@
 
 #menulist a:hover{
     background-color:white;
-    color:#C0392B;
+    color:black;
+    text-decoration:underline;
 }

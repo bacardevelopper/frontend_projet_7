@@ -24,11 +24,14 @@ export class OwnpostComponent implements OnInit {
     formData.append('cookie', JSON.stringify(this.cookieValue));
     this.http.post('http://localhost:3000/home/own/post', formData).subscribe(
       (reponse) => {
-        console.log(reponse);
+        //console.log(reponse);
         this.posts = reponse;
       },
       (error) => {
         console.log(error);
+        alert('erreur pas connecté : appuyez sur OK pour vous connectez');
+        document.location.replace('http://localhost:4200/login');
+
       }
     );
   }
@@ -36,24 +39,27 @@ export class OwnpostComponent implements OnInit {
   /* ----------------------------------------------------------------- */
   // suppression de l'article : recuperation de l'id de type string
   delete(evt) {
-    console.log(evt);
+    //console.log(evt);
     let target = evt.target || evt.srcElement || evt.currentTarget;
     let idAtt = target.attributes.id;
     let value = idAtt.nodeValue;
-    console.log(typeof value);
-    console.log(value);
+    //console.log(typeof value);
+    //console.log(value);
     const dataNumb = Number(value);
-    console.log(dataNumb);
+    //console.log(dataNumb);
     let formData = new FormData();
     formData.append('cookie', JSON.stringify(this.cookieValue));
     formData.append('delete', JSON.stringify(dataNumb));
     // convertir la valeur pour supprimer le post du user concerner
     this.http.post('http://localhost:3000/home/delete', formData).subscribe(
       (reponse) => {
-        console.log(reponse);
+        //console.log(reponse);
+        alert('article bien supprimé');
+        document.location.replace('http://localhost:4200/posts');
       },
       (error) => {
-        console.log(error);
+        
+        //console.log(error);
       }
     );
   }

@@ -11,18 +11,20 @@ import { NgForm } from '@angular/forms';
 })
 //
 export class ProfilComponent implements OnInit {
-  pseudo:any;
+  pseudo: any;
   token: any = this.cookie.get('idusercookie');
   profileRequete() {
     let formData = new FormData();
     formData.append('cookie', JSON.stringify(this.token));
     this.http.post('http://localhost:3000/home/profile', formData).subscribe(
       (reponse) => {
-        console.log(reponse);
-       this.pseudo = reponse;
+        //console.log(reponse);
+        this.pseudo = reponse;
       },
       (error) => {
-        console.log(error);
+        //console.log(error);
+        alert('non connécté redirection');
+        document.location.replace('http://localhost:4200/login');
       }
     );
   }
@@ -37,19 +39,21 @@ export class ProfilComponent implements OnInit {
         .put('http://localhost:3000/home/modifier/mdp', formData)
         .subscribe(
           (reponse) => {
+            alert('redirection pour vous reconnecter');
             this.cookie.delete('idusercookie');
             document.location.replace('http://localhost:4200/login');
-            console.log(reponse);
+            //console.log(reponse);
           },
           (error) => {
-            console.log(error);
+            //console.log(error);
           }
         );
     } else {
-      console.log('champ vide');
+      alert('cham vide');
+      //console.log('champ vide');
     }
 
-    console.log(data);
+    // console.log(data);
   }
   // modification pseudo
   onModifyPseudo(form: NgForm) {
@@ -62,16 +66,19 @@ export class ProfilComponent implements OnInit {
         .put('http://localhost:3000/home/updt/profile', formData)
         .subscribe(
           (reponse) => {
-            console.log(form.value.pseudo);
-            console.log(reponse);
+            //console.log(form.value.pseudo);
+            //console.log(reponse);
             alert('success');
+            document.location.replace('http://localhost:4200/profil');
           },
           (error) => {
-            console.log(error);
+            alert('erreur modification pseudo');
+            //console.log(error);
           }
         );
     } else {
-      console.log('champ pseudo vide');
+      alert('champ pseudo vide');
+      //console.log('champ pseudo vide');
     }
   }
   /* suppression utilisateur */
@@ -82,12 +89,15 @@ export class ProfilComponent implements OnInit {
       .post('http://localhost:3000/home/delete/user', formData)
       .subscribe(
         (reponse) => {
-          console.log(reponse);
+          //console.log(reponse);
           this.cookie.delete('idusercookie');
           document.location.replace('http://localhost:4200/signup');
         },
         (error) => {
-          console.log(error);
+          alert(
+            'erreur suppression utilisateur verifier que vous etes connecté'
+          );
+          //console.log(error);
         }
       );
   }

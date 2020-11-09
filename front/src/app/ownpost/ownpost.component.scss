@@ -3,7 +3,7 @@
   top: 125px;
   width: 95%;
   min-height: 120px;
-  background-color: grey;
+  background-color: #091f43;
   margin-bottom: 5px;
   display: flex;
   flex-direction: column;
@@ -12,25 +12,35 @@
 
 #post {
   display: flex;
-  flex-direction:column;
-  justify-content:center;
+  flex-direction: column;
+  justify-content: center;
   width: 80%;
 }
 
 #post img {
   width: 100%;
+  margin-bottom:6px;
 }
 
-p, h3{
-    margin:2px;
+p,
+h3 {
+  margin: 2px;
+  color: white;
 }
 
-hr{
-    width:100%;
-    height:2px;
-    background-color:white;
+hr {
+  width: 100%;
+  height: 2px;
+  background-color: white;
 }
 
-button{
-    margin:1px;
+button {
+  margin: 1px;
+  background-color: #d1515a;
+  font-weight: bold;
+  color: white;
+  border: 0px;
+  height: 28px;
+  margin:5px;
+  border-radius:7px;
 }

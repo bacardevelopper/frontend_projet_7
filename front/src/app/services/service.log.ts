@@ -33,6 +33,7 @@ export class ServiceLog {
           document.location.replace('http://localhost:4200/login');
         },
         (error) => {
+          alert(" Erreur d'inscription verifier vos id (ou email déjà enregister)");
           //console.log(error);
         }
       );
@@ -51,7 +52,7 @@ export class ServiceLog {
         document.location.replace('http://localhost:4200/forum');
       },
       (error) => {
-        //console.log(error);
+        alert("Erreur sur de connexion verifier vos ID");
       }
     );
   }
@@ -73,6 +74,7 @@ export class ServiceLog {
         // console.table(this.arrayDataGet);
       },
       (error) => {
+        
         // console.log(error);
       }
     );

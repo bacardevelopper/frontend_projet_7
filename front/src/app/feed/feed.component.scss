@@ -1,124 +1,142 @@
-#feed{
-    min-height:250px;
-    background-color:#d1515a;
-    position:absolute;
-    top:100px;
-    margin:0px;
-    left:15px;
-    right:15px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    z-index:1;
-    margin-bottom:10px;
+#feed {
+  min-height: 250px;
+  background-color: #d1515a;
+  position: absolute;
+  top: 100px;
+  margin: 0px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-bottom: 10px;
 }
 
-#feed form{
-    margin:0px;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:center;
-    width:85%;
-    border-radius:8px;
+#feed form {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  border-radius: 8px;
 }
 
-#post{
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    justify-content:center;
+#post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
 }
 
-#post input, #post textarea{
-    margin:10px;
-    border:none;
-    padding:10px;
-    min-width:80%;
-    border-radius:8px;
+#post input,
+#post textarea {
+  margin: 10px;
+  border: none;
+  padding: 10px;
+  min-width: 80%;
+  border-radius: 8px;
 }
 
-#feed textarea{
-    height:100px;
+#feed textarea {
+  height: 100px;
 }
 
-#btn{
-    margin:10px;
-    width:190px;
+#btn {
+  margin: 10px;
+  width: 190px;
 }
 
-#getpostall{
-    width:80%;
-    display:flex;
-    flex-direction:column;
-    padding:5px;
-    align-items:center;
+#getpostall {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: center;
 }
 
-#getpostall img{
-    width:80%;
+#getpostall img {
+  width: 100%;
 }
 
-#getpostall h3{
-    font-size:25px;
-    color:white;
-    padding:0px;
-    margin:1px;
+#getpostall h3 {
+  font-size: 25px;
+  color: white;
+  padding: 0px;
+  margin: 1px;
+  text-decoration: underline;
 }
 
-#getpostall p{
-    width:80%;
-    word-wrap:break-word;
+#getpostall p {
+  width: 80%;
+  word-wrap: break-word;
+  color:#ECF0F1;
+  font-weight:bold;
 }
 
-#spaceComment{
-    margin-top:5px;
-    width:80%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+#spaceComment, form {
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
 }
-#commentaires{
-    position: absolute;
-    top:125px;
-    min-height:100px;
-    background-color:white;
-    left:10px;
-    right:10px;
-    z-index:2;
-    color:white;
-    border:2px solid black;
-}
-
-#commentaires p{
-    text-align:center;
-    margin:2px;
-    padding:0px;
+#commentaires {
+  position: absolute;
+  top: 125px;
+  min-height: 100px;
+  background-color: white;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
+  color: white;
+  border: 2px solid #D7DBDD;
 }
 
-#blue{
-    color:blue;
+#commentaires p {
+  text-align: center;
+  margin: 2px;
+  padding: 0px;
 }
 
-#green{
-    color:green;
+#blue {
+  color: blue;
 }
 
-#getpostall p{
-    margin:1px;
+#green {
+  color: green;
 }
 
-form button{
-    border-radius:5px;
-    border:0px;
-    background-color:#091f43;
-    color:white;
-    font-weight:bold;
-    padding:5px;
+#getpostall p {
+  margin: 1px;
 }
 
-form input{
-    border:0px;
-    padding:5px;
+form input {
+  border: 0px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#spaceComment button {
+  border-radius: 5px;
+  border: 0px;
+  background-color: #091f43;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  margin: 5px;
+}
+
+#commentRecup {
+  width: 70%;
+}
+
+#cmtSub {
+  min-width: 30%;
+}
+#croix{
+  width:20px;
 }

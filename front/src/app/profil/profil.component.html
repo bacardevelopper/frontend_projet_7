@@ -2,7 +2,7 @@
   <h2>Bienvenu sur votre profile : {{ pseudo }}</h2>
   <h4>Modifer mot de passe</h4>
   <form (ngSubmit)="onModifyMdp(f)" #f="ngForm">
-    <input placeholder="##########" type="text" name="mdp" ngModel required />
+    <input placeholder="##########" type="password" name="mdp" ngModel required />
     <button type="submit" [disabled]="f.invalid">Changer mot de passe</button>
   </form>
   <!-- modifier pseudo -->

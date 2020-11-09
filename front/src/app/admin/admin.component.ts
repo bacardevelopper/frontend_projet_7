@@ -8,17 +8,17 @@ import { CookieService } from 'ngx-cookie-service';
 })
 /* ----------------------------------------------------------------------------------- */
 export class AdminComponent implements OnInit {
-  lastU:any
-  nbrComent:any;
-  nbrArtc:any;
-  nbr:any;
+  lastU: any;
+  nbrComent: any;
+  nbrArtc: any;
+  nbr: any;
   forum: any;
   cookieValue: any = this.cookie.get('idusercookie');
-  constructor(private http: HttpClient, private cookie: CookieService) { }
+  constructor(private http: HttpClient, private cookie: CookieService) {}
 
   ngOnInit(): void {
     this.getAllPost();
-    this.recupStats()
+    this.recupStats();
   }
   /* ----------------------------------------------------------------------------------- */
   getAllPost() {
@@ -27,11 +27,11 @@ export class AdminComponent implements OnInit {
 
     this.http.post('http://localhost:3000/home/admin/all', formData).subscribe(
       (reponse) => {
-        console.log(reponse);
+        //console.log(reponse);
         this.forum = reponse;
       },
       (error) => {
-        console.log(error);
+        //console.log(error);
       }
     );
   }
@@ -40,22 +40,20 @@ export class AdminComponent implements OnInit {
   moderation(event) {
     let formData = new FormData();
     formData.append('cookie', JSON.stringify(this.cookieValue));
-    console.log(event);
+    //console.log(event);
     let target = event.target || event.srcElement || event.currentTarget;
     let idAtt = target.attributes.id;
     let value = idAtt.nodeValue;
-    console.log(typeof value);
-    console.log(value);
     this.dataNumb = Number(value);
     formData.append('moderer', JSON.stringify(this.dataNumb));
 
     this.http.post('http://localhost:3000/home/moderer', formData).subscribe(
       (reponse) => {
-        console.log(reponse);
+        //console.log(reponse);
         document.location.replace('http://localhost:4200/forum');
       },
       (error) => {
-        console.log(error);
+        //console.log(error);
       }
     );
   }
@@ -66,16 +64,17 @@ export class AdminComponent implements OnInit {
     formData.append('cookie', JSON.stringify(this.cookieValue));
     this.http.post('http://localhost:3000/home/stats', formData).subscribe(
       (reponse) => {
-        console.log(reponse);
+        //console.log(reponse);
         this.nbr = reponse;
         this.nbrArtc = this.nbr.nbr;
         this.nbrComent = this.nbr.nbrComent;
         this.lastU = this.nbr.users;
-        console.log(this.lastU);
-
+        //console.log(this.lastU);
       },
       (error) => {
-        console.log(error);
+        alert('vous etes pas admin ou non connecté');
+        document.location.replace('http://localhost:4200/login');
+        //console.log(error);
       }
     );
   }

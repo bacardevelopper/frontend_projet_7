@@ -1,6 +1,9 @@
+<!-- commentaires -->
 <div *ngIf="show" id="commentaires">
+  <img src="../../assets/croix.png" id="croix" (click)="notShow()"/>
   <p *ngFor="let post of dataComment">
- <span id="blue">{{ post.commentaire }}  </span><span id="green"> date : {{post.datecoment}}</span>
+    <span id="blue">{{ post.commentaire }} </span
+    ><span id="green"> date : {{ post.datecoment }}</span>
   </p>
 </div>
 <div id="feed">
@@ -46,9 +49,9 @@
         #c="ngForm"
       >
         <input type="text" name="commentaire" id="commentRecup" ngModel />
-        <button type="submit">commenter</button>
+        <button id="cmtSub" type="submit">commenter</button>
       </form>
-      <button (click)="getComment($event)" [id]="oneArt.idpost">
+      <button id="vrcmt" (click)="getComment($event)" [id]="oneArt.idpost">
         Voir commentaire
       </button>
     </div>
