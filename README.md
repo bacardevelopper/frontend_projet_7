@@ -1,11 +1,13 @@
 ## Front
 Avant de commencer, (avoir angular installer dans sa machine)
+
 Doc sur : www.angular.io
+
 ### cloner le repertoire sur votre machine(en locale)
 
 ```
 // cloner repertoire
-https://github.com/bacardevelopper/backend_Projet_Sept.git
+git clone https://github.com/bacardevelopper/frontend_projet_7.git
 // acceder au repertoire sur machine
 cd front
 ```
