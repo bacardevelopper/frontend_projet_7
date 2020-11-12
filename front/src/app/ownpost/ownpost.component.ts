@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ownpost.component.scss'],
 })
 export class OwnpostComponent implements OnInit {
+  
   cookieValue: any = this.cookie.get('idusercookie');
   posts: any;
   constructor(

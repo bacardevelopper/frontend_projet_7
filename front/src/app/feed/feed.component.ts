@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FeedComponent implements OnInit {
   /* VARIABLES */
+  temoin: boolean;
+  nombreComment: any;
   cookieValue: any = this.cookies.get('idusercookie');
   data: any;
   uploadedFiles: Array<File>;
@@ -17,12 +19,13 @@ export class FeedComponent implements OnInit {
   dataComment: any;
   show: boolean = false;
   /* VARIABLES */
+
   /* recuperation du fichier */
   fileChange(element) {
     this.uploadedFiles = element.target.files;
   }
 
-  notShow(){
+  notShow() {
     this.show = false;
   }
   postArticles(form: NgForm) {
@@ -31,26 +34,20 @@ export class FeedComponent implements OnInit {
     let formData = new FormData();
     formData.append('file', this.uploadedFiles[0], this.uploadedFiles[0].name);
 
-    const fileData = formData.get('file');
-    const datForReq = { token: this.cookieValue, data: this.data };
-
     formData.append('cookie', JSON.stringify(this.cookieValue));
     formData.append('data', JSON.stringify(this.data));
-    //console.log(datForReq);
-    //console.log(fileData);
     /* VARIABLES */
 
     this.http
       .post<any>('http://localhost:3000/home/create', formData)
       .subscribe(
         (reponse) => {
-         // console.log(reponse);
+          // console.log(reponse);
           this.dataComment = reponse;
           alert('article bien posté : en cours de moderation');
           document.location.replace('http://localhost:4200/forum');
         },
         (error) => {
-          
           //console.log(error);
         }
       );
@@ -62,9 +59,11 @@ export class FeedComponent implements OnInit {
     this.http.post('http://localhost:3000/home/read/all', formData).subscribe(
       (reponse) => {
         //console.log(reponse);
+        this.temoin = true;
         this.forum = reponse;
       },
       (error) => {
+        this.temoin = false;
         //console.log(error);
         alert('non connecté : redirection');
         document.location.replace('http://localhost:4200/login');
@@ -88,8 +87,8 @@ export class FeedComponent implements OnInit {
 
     this.http.post('http://localhost:3000/home/comment', formData).subscribe(
       (reponse) => {
-       // console.log(reponse);
-       alert('commentaire bien ajouté');
+        // console.log(reponse);
+        alert('commentaire bien ajouté');
         document.location.replace('http://localhost:4200/forum');
       },
       (error) => {
@@ -107,18 +106,18 @@ export class FeedComponent implements OnInit {
     let formData = new FormData();
     formData.append('cookie', JSON.stringify(this.cookieValue));
     formData.append('idcmt', JSON.stringify(dataNumb));
-   // console.log(dataNumb);
+    // console.log(dataNumb);
     /* -------------------------------------- */
     this.http
-      .post('http://localhost:3000/home/all/comment', formData)
+      .post('http://localhost:3000/home/get/comment', formData)
       .subscribe(
         (reponse) => {
-          //console.log(reponse);
+          console.log(reponse);
           this.show = true;
           this.dataComment = reponse;
         },
         (error) => {
-         // console.log(error);
+          // console.log(error);
         }
       );
   }

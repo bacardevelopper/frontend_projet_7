@@ -1,15 +1,21 @@
-<div id="admin">
+<div id="admin" *ngIf="temoin">
   <div id="adminStat">
     <p>Nombres d'articles : {{ nbrArtc }}</p>
     <p>Nombres de commentaires : {{ nbrComent }}</p>
-    <p>Les participant</p>
-    <!-- afficher les 3 derniers participants-->
-    <span *ngFor="let lastUser of lastU"
-      >Pseudo: {{ lastUser.generateid }}, Titre: {{ lastUser.titre }}, Date:{{
-        lastUser.datepost
-      }}
-      <hr />
-    </span>
+    <p id="pdging">Les derniers participants</p>
+
+    <table id="tbl">
+      <tr id="enteteTable">
+        <th>PSEUDO</th>
+        <th>TITRE</th>
+        <th>DATE PARUTION</th>
+      </tr>
+      <tr id="enteteTbl" *ngFor="let lastUser of lastU">
+        <th>{{ lastUser.generateid }}</th>
+        <th>{{ lastUser.titre }}</th>
+        <th>{{ lastUser.datepost | date: "short" }}</th>
+      </tr>
+    </table>
   </div>
   <div id="getpostall" *ngFor="let oneArt of forum">
     <h3>{{ oneArt.titre }}</h3>

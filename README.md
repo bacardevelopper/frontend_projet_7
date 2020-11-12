@@ -22,7 +22,7 @@ ng serve
 localhost:4200
 ```
 
-#### sur l'interface graphique connectez vous avec ces ID
+#### sur l'application connectez vous avec ces ID
 Pour etre moderateur (admin) du site web
 ```
 // email  : admin@groupmania.fr

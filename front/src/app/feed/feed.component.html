@@ -1,12 +1,12 @@
 <!-- commentaires -->
 <div *ngIf="show" id="commentaires">
-  <img src="../../assets/croix.png" id="croix" (click)="notShow()"/>
+  <img src="../../assets/croix.png" id="croix" (click)="notShow()" />
   <p *ngFor="let post of dataComment">
     <span id="blue">{{ post.commentaire }} </span
-    ><span id="green"> date : {{ post.datecoment }}</span>
+    ><span id="green"> date : {{ post.datecoment | date: "short"}}</span>
   </p>
 </div>
-<div id="feed">
+<div id="feed" *ngIf="temoin">
   <form
     method="post"
     (ngSubmit)="postArticles(f)"
@@ -36,10 +36,10 @@
   </form>
   <!-- la publication -->
   <div id="getpostall" *ngFor="let oneArt of forum">
-    <h3>{{ oneArt.titre }}</h3>
-    <p>{{ oneArt.texte }}</p>
+    <h3>Le titre: {{ oneArt.titre }}</h3>
+    <p>Le texte: <br/>{{ oneArt.texte }}</p>
     <p>De : {{ oneArt.usergenerate }}</p>
-    <img [src]="oneArt.urlfile" />
+    <img [src]="oneArt.urlfile" alt="image"/>
     <div id="spaceComment">
       <!-- espace commentaire -->
       <form

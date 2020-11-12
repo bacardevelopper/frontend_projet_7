@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 //
 export class ProfilComponent implements OnInit {
+  temoin:boolean;
   pseudo: any;
   token: any = this.cookie.get('idusercookie');
   profileRequete() {
@@ -19,10 +20,12 @@ export class ProfilComponent implements OnInit {
     this.http.post('http://localhost:3000/home/profile', formData).subscribe(
       (reponse) => {
         //console.log(reponse);
+        this.temoin = true;
         this.pseudo = reponse;
       },
       (error) => {
         //console.log(error);
+        this.temoin = false;
         alert('non connécté redirection');
         document.location.replace('http://localhost:4200/login');
       }
@@ -68,7 +71,7 @@ export class ProfilComponent implements OnInit {
           (reponse) => {
             //console.log(form.value.pseudo);
             //console.log(reponse);
-            alert('success');
+            alert('Modifier pseudo');
             document.location.replace('http://localhost:4200/profil');
           },
           (error) => {

@@ -14,8 +14,10 @@ import { OwnpostComponent } from './ownpost/ownpost.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ModifyComponent } from './modify/modify.component';
 import { AdminComponent } from './admin/admin.component';
+import { AccueilComponent } from './accueil/accueil.component';
 /* un array qui contient le chemin et le component qui correspond */
 const appRoutes: Routes = [
+  { path: '', component: AccueilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forum', component: FeedComponent },
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     ProfilComponent,
     ModifyComponent,
     AdminComponent,
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,

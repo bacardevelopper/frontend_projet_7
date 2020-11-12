@@ -1,0 +1,42 @@
+#home {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: white;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  background-color: #091f43;
+  
+
+}
+
+#home h1, #home h2 {
+  text-align:left;
+  max-width: 85%;
+  color:white;
+  margin-left:15px;
+}
+
+#home button{
+    margin:7px;
+    width:125px;
+    border:0px;
+    padding:5px;
+    background-color: #d1515a;
+    border-radius:5px;
+    color:white;
+    font-size:bold;
+    box-shadow:2px 2px 1px white;
+}
+
+#center{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+

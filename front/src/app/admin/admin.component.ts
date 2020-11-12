@@ -8,6 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 /* ----------------------------------------------------------------------------------- */
 export class AdminComponent implements OnInit {
+  temoin:boolean;
   lastU: any;
   nbrComent: any;
   nbrArtc: any;
@@ -27,10 +28,12 @@ export class AdminComponent implements OnInit {
 
     this.http.post('http://localhost:3000/home/admin/all', formData).subscribe(
       (reponse) => {
+        this.temoin = true;
         //console.log(reponse);
         this.forum = reponse;
       },
       (error) => {
+        this.temoin = false;
         //console.log(error);
       }
     );
@@ -64,12 +67,13 @@ export class AdminComponent implements OnInit {
     formData.append('cookie', JSON.stringify(this.cookieValue));
     this.http.post('http://localhost:3000/home/stats', formData).subscribe(
       (reponse) => {
-        //console.log(reponse);
+        console.log(reponse);
         this.nbr = reponse;
         this.nbrArtc = this.nbr.nbr;
         this.nbrComent = this.nbr.nbrComent;
         this.lastU = this.nbr.users;
-        //console.log(this.lastU);
+        
+        console.log(this.lastU);
       },
       (error) => {
         alert('vous etes pas admin ou non connecté');

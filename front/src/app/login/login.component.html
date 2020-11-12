@@ -2,6 +2,7 @@
   <!-- angular prend en main en emettant ngSubmit et la methode prend en argument f -->
   <h2>Sign In</h2>
   <form (ngSubmit)="onSignin(f)" #f="ngForm">
+    <label for="email"></label>
     <input
       placeholder="email@email.fr"
       type="text"
@@ -9,6 +10,7 @@
       ngModel
       required
     /><br />
+    <label for="mdp"></label>
     <input
       placeholder="password"
       type="password"
