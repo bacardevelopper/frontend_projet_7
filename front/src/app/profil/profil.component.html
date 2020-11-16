@@ -1,5 +1,5 @@
 <div id="profile" *ngIf="temoin">
-  <h2>Bienvenu sur votre profile : {{ pseudo }}</h2>
+  <h2>Bienvenu sur votre profil : {{ pseudo }}</h2>
   <h4>Modifer mot de passe</h4>
   <form (ngSubmit)="onModifyMdp(f)" #f="ngForm">
     <input placeholder="##########" type="password" name="mdp" ngModel required />
